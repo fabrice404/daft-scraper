@@ -3,22 +3,22 @@ const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
 
-///////////////////////////////////////////////
+/// ////////////////////////////////////////////
 // CONSTANTS
 
 // folders
 const CACHE_FOLDER = process.env.CACHE_FOLDER || `${__dirname}/cache`;
 const OUTPUT_FOLDER = process.env.OUTPUT_FOLDER || `${os.homedir()}/files`;
 
-// openrouteservice 
-const OPENROUTESERVICE_API_KEY = process.env.OPENROUTESERVICE_API_KEY;
+// openrouteservice
+const { OPENROUTESERVICE_API_KEY } = process.env;
 const OPENROUTESERVICE_RPM_LIMIT = 40;
 
 // price range filter
 const MINUMUM_PRICE = parseInt(process.env.MINUMUM_PRICE, 10);
 const MAXIMUM_PRICE = parseInt(process.env.MAXIMUM_PRICE, 10);
 
-///////////////////////////////////////////////
+/// ////////////////////////////////////////////
 // CONFIG FILES
 const cities = JSON.parse(fs.readFileSync(`${__dirname}/cities.json`));
 const transports = JSON.parse(fs.readFileSync(`${__dirname}/transports.json`));
@@ -26,29 +26,29 @@ const transports = JSON.parse(fs.readFileSync(`${__dirname}/transports.json`));
 /**
  * Pauses the execution for a given duration
  * @param {number} ms duration in miliseconds
- * @returns 
+ * @returns
  */
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
  * Gets daft.ie page for given city and page number
  * @param {string} city City slug
  * @param {number} page Optional page number
- * @returns 
+ * @returns
  */
 const getDaftLocation = async (city, page = 1) => {
   console.log(city, page);
   const properties = [];
-  const url = `https://www.daft.ie/property-for-sale/${city}/houses?sort=publishDateDesc&from=${(page - 1) * 20}`
+  const url = `https://www.daft.ie/property-for-sale/${city}/houses?sort=publishDateDesc&from=${(page - 1) * 20}`;
   const response = await axios.get(url);
   const html = response.data;
   const json = JSON.parse(
     html
       .split('<script id="__NEXT_DATA__" type="application/json">')[1]
-      .split('</script>')[0]
+      .split('</script>')[0],
   );
 
-  properties.push(...json.props.pageProps.listings.map(l => l.listing));
+  properties.push(...json.props.pageProps.listings.map((l) => l.listing));
 
   if (json.props.pageProps.listings.length === 20) {
     const listings = await getDaftLocation(city, page + 1);
@@ -60,15 +60,15 @@ const getDaftLocation = async (city, page = 1) => {
   }
 
   return properties;
-}
+};
 
 /**
  * Calculates a distance between two GPS locations
- * @param {number} lat1 
- * @param {number} lng1 
- * @param {number} lat2 
- * @param {number} lng2 
- * @returns 
+ * @param {number} lat1
+ * @param {number} lng1
+ * @param {number} lat2
+ * @param {number} lng2
+ * @returns
  */
 const calculateDistance = (lat1, lng1, lat2, lng2) => {
   const radlat1 = (Math.PI * lat1) / 180;
@@ -88,9 +88,9 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
 
 /**
  * Calculates distance between given GPS location and O'Connell bridge
- * @param {number} lat 
- * @param {number} lng 
- * @returns 
+ * @param {number} lat
+ * @param {number} lng
+ * @returns
  */
 const distanceFromOConnellBridge = (lat, lng) => calculateDistance(
   lat, lng,
@@ -100,9 +100,9 @@ const distanceFromOConnellBridge = (lat, lng) => calculateDistance(
 /**
  * Calculates distance between given GPS location and public transports stations
  * @param {string} id Property identifier to store in cache
- * @param {number} lat 
- * @param {number} lng 
- * @returns 
+ * @param {number} lat
+ * @param {number} lng
+ * @returns
  */
 const findClosestTransport = async (id, lat, lng) => {
   const file = `${CACHE_FOLDER}/transport-${id}.json`;
@@ -124,7 +124,7 @@ const findClosestTransport = async (id, lat, lng) => {
   for (const station of stations) {
     const url = `https://api.openrouteservice.org/v2/directions/foot-walking?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${station.lng},${station.lat}`;
     const response = await axios.get(url);
-    const { distance, duration } = response.data.features[0].properties.summary
+    const { distance, duration } = response.data.features[0].properties.summary;
     station.distance = distance;
     station.duration = duration;
     await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
@@ -137,8 +137,8 @@ const findClosestTransport = async (id, lat, lng) => {
 
 /**
  * Filter, extract and score metadata from daft property object
- * @param {object} property 
- * @returns 
+ * @param {object} property
+ * @returns
  */
 const extractPropertyData = async (property) => {
   const price = property.price.replace(/[^0-9]/gi, '');
@@ -211,7 +211,9 @@ const extractPropertyData = async (property) => {
   }, 0);
   /* eslint-enable no-param-reassign */
 
-  const { id, title, propertyType, point, seoFriendlyPath, abbreviatedPrice, publishDate } = property;
+  const {
+    id, title, propertyType, point, seoFriendlyPath, abbreviatedPrice, publishDate,
+  } = property;
   const image = property.media.images[0].size300x200;
   const ber = property.ber.rating;
   return {
@@ -251,8 +253,8 @@ const main = async () => {
 
   const ids = [];
   const properties = fs.readdirSync(`${CACHE_FOLDER}/`)
-    .filter(f => f.endsWith('.json'))
-    .map(f => JSON.parse(fs.readFileSync(`${CACHE_FOLDER}/${f}`, 'utf-8')).properties)
+    .filter((f) => f.endsWith('.json'))
+    .map((f) => JSON.parse(fs.readFileSync(`${CACHE_FOLDER}/${f}`, 'utf-8')).properties)
     .flat()
     .filter((property) => {
       if (property) {
@@ -269,9 +271,9 @@ const main = async () => {
   for (const property of properties) {
     const p = await extractPropertyData(property);
     if (p) {
-      result.push(p)
+      result.push(p);
     }
-  };
+  }
 
   console.log(`${result.length} properties listed`);
   fs.writeFileSync(`${OUTPUT_FOLDER}/daft.json`, JSON.stringify(result, null, 2));
