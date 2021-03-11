@@ -10,3 +10,6 @@ e.g. `malahide-dublin`
 
 \
 Set the list of public transport stations in `transports.json`, it contains the DART stations and Luas Green line stations by default.
+
+\
+run `npm start` to run start the extraction, it will create the json file in `~/files/daft.json`
