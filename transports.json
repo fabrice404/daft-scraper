@@ -1,0 +1,320 @@
+[
+  {
+    "type": "Luas",
+    "name": "St. Stephen's Green",
+    "lat": 53.339072,
+    "lng": -6.261333
+  },
+  {
+    "type": "Luas",
+    "name": "Harcourt",
+    "lat": 53.333358,
+    "lng": -6.26265
+  },
+  {
+    "type": "Luas",
+    "name": "Charlemont",
+    "lat": 53.330669,
+    "lng": -6.258683
+  },
+  {
+    "type": "Luas",
+    "name": "Ranelagh",
+    "lat": 53.326433,
+    "lng": -6.256203
+  },
+  {
+    "type": "Luas",
+    "name": "Beechwood",
+    "lat": 53.320822,
+    "lng": -6.254653
+  },
+  {
+    "type": "Luas",
+    "name": "Cowper",
+    "lat": 53.316467,
+    "lng": -6.253447
+  },
+  {
+    "type": "Luas",
+    "name": "Milltown",
+    "lat": 53.309917,
+    "lng": -6.251728
+  },
+  {
+    "type": "Luas",
+    "name": "Windy Arbour",
+    "lat": 53.301558,
+    "lng": -6.250708
+  },
+  {
+    "type": "Luas",
+    "name": "Dundrum",
+    "lat": 53.292358,
+    "lng": -6.245117
+  },
+  {
+    "type": "Luas",
+    "name": "Balally",
+    "lat": 53.286106,
+    "lng": -6.236772
+  },
+  {
+    "type": "Luas",
+    "name": "Kilmacud",
+    "lat": 53.283008,
+    "lng": -6.223886
+  },
+  {
+    "type": "Luas",
+    "name": "Stillorgan",
+    "lat": 53.279311,
+    "lng": -6.209919
+  },
+  {
+    "type": "Luas",
+    "name": "Sandyford",
+    "lat": 53.277603,
+    "lng": -6.204678
+  },
+  {
+    "type": "Luas",
+    "name": "Central Park",
+    "lat": 53.27015,
+    "lng": -6.203764
+  },
+  {
+    "type": "Luas",
+    "name": "Glencairn",
+    "lat": 53.266336,
+    "lng": -6.209942
+  },
+  {
+    "type": "Luas",
+    "name": "The Gallops",
+    "lat": 53.261164,
+    "lng": -6.206022
+  },
+  {
+    "type": "Luas",
+    "name": "Leopardstown Valley",
+    "lat": 53.258247,
+    "lng": -6.198361
+  },
+  {
+    "type": "Luas",
+    "name": "Ballyogan Wood",
+    "lat": 53.255047,
+    "lng": -6.184475
+  },
+  {
+    "type": "Luas",
+    "name": "Carrickmines",
+    "lat": 53.254033,
+    "lng": -6.169908
+  },
+  {
+    "type": "Luas",
+    "name": "Laughanstown",
+    "lat": 53.250606,
+    "lng": -6.155006
+  },
+  {
+    "type": "Luas",
+    "name": "Cherrywood",
+    "lat": 53.245333,
+    "lng": -6.145853
+  },
+  {
+    "type": "Luas",
+    "name": "Brides Glen",
+    "lat": 53.242075,
+    "lng": -6.142886
+  },
+  {
+    "type": "DART",
+    "name": "Malahide",
+    "lat": 53.4509,
+    "lng": -6.15649
+  },
+  {
+    "type": "DART",
+    "name": "Portmarnock",
+    "lat": 53.4169,
+    "lng": -6.1512
+  },
+  {
+    "type": "DART",
+    "name": "Clongriffin",
+    "lat": 53.4032,
+    "lng": -6.14839
+  },
+  {
+    "type": "DART",
+    "name": "Sutton",
+    "lat": 53.392,
+    "lng": -6.11448
+  },
+  {
+    "type": "DART",
+    "name": "Bayside",
+    "lat": 53.3917,
+    "lng": -6.13678
+  },
+  {
+    "type": "DART",
+    "name": "Howth Junction",
+    "lat": 53.3909,
+    "lng": -6.15672
+  },
+  {
+    "type": "DART",
+    "name": "Howth",
+    "lat": 53.3891,
+    "lng": -6.07401
+  },
+  {
+    "type": "DART",
+    "name": "Kilbarrack",
+    "lat": 53.387,
+    "lng": -6.16163
+  },
+  {
+    "type": "DART",
+    "name": "Raheny",
+    "lat": 53.3815,
+    "lng": -6.17699
+  },
+  {
+    "type": "DART",
+    "name": "Harmonstown",
+    "lat": 53.3786,
+    "lng": -6.19131
+  },
+  {
+    "type": "DART",
+    "name": "Killester",
+    "lat": 53.373,
+    "lng": -6.20442
+  },
+  {
+    "type": "DART",
+    "name": "Clontarf Road",
+    "lat": 53.3629,
+    "lng": -6.22753
+  },
+  {
+    "type": "DART",
+    "name": "Dublin Connolly",
+    "lat": 53.3531,
+    "lng": -6.24591
+  },
+  {
+    "type": "DART",
+    "name": "Tara Street",
+    "lat": 53.347,
+    "lng": -6.25425
+  },
+  {
+    "type": "DART",
+    "name": "Dublin Pearse",
+    "lat": 53.3433,
+    "lng": -6.24829
+  },
+  {
+    "type": "DART",
+    "name": "Grand Canal Dock",
+    "lat": 53.3397,
+    "lng": -6.23773
+  },
+  {
+    "type": "DART",
+    "name": "Lansdowne Road",
+    "lat": 53.3347,
+    "lng": -6.22979
+  },
+  {
+    "type": "DART",
+    "name": "Sandymount",
+    "lat": 53.3281,
+    "lng": -6.22116
+  },
+  {
+    "type": "DART",
+    "name": "Sydney Parade",
+    "lat": 53.3206,
+    "lng": -6.21112
+  },
+  {
+    "type": "DART",
+    "name": "Booterstown",
+    "lat": 53.3099,
+    "lng": -6.19498
+  },
+  {
+    "type": "DART",
+    "name": "Blackrock",
+    "lat": 53.3027,
+    "lng": -6.17833
+  },
+  {
+    "type": "DART",
+    "name": "Seapoint",
+    "lat": 53.2991,
+    "lng": -6.16512
+  },
+  {
+    "type": "DART",
+    "name": "Salthill and Monkstown",
+    "lat": 53.2954,
+    "lng": -6.15206
+  },
+  {
+    "type": "DART",
+    "name": "Dun Laoghaire",
+    "lat": 53.2951,
+    "lng": -6.13498
+  },
+  {
+    "type": "DART",
+    "name": "Sandycove",
+    "lat": 53.2878,
+    "lng": -6.12712
+  },
+  {
+    "type": "DART",
+    "name": "Glenageary",
+    "lat": 53.2812,
+    "lng": -6.12289
+  },
+  {
+    "type": "DART",
+    "name": "Dalkey",
+    "lat": 53.2756,
+    "lng": -6.10333
+  },
+  {
+    "type": "DART",
+    "name": "Killiney",
+    "lat": 53.2557,
+    "lng": -6.11317
+  },
+  {
+    "type": "DART",
+    "name": "Shankill",
+    "lat": 53.2364,
+    "lng": -6.11691
+  },
+  {
+    "type": "DART",
+    "name": "Bray",
+    "lat": 53.2043,
+    "lng": -6.10046
+  },
+  {
+    "type": "DART",
+    "name": "Greystones",
+    "lat": 53.1442,
+    "lng": -6.06085
+  }
+]

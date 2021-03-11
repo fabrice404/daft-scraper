@@ -1,0 +1,7 @@
+cache/
+node_modules/
+output/
+out/
+deploy.sh
+.DS_Store
+.env
