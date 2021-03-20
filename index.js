@@ -120,6 +120,9 @@ const findClosestTransport = async (id, lat, lng) => {
     .sort((a, b) => a.distance - b.distance)
     .slice(0, 3);
 
+  if (stations[0].distance > 5000) {
+    return null;
+  }
   // calculate walking distsance for the 3 closest stations
   for (const station of stations) {
     const url = `https://api.openrouteservice.org/v2/directions/foot-walking?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${station.lng},${station.lat}`;
@@ -180,11 +183,15 @@ const extractPropertyData = async (property) => {
   const bedrooms = property.numBedrooms ? property.numBedrooms.replace(/[^0-9]/gi, '') : 0;
   const bathrooms = property.numBathrooms ? property.numBathrooms.replace(/[^0-9]/gi, '') : 0;
   const pricePerSquareMeter = Math.ceil(price / property.floorArea.value);
+  const floorArea = parseInt(property.floorArea.value, 10);
   const [lng, lat] = property.point.coordinates;
   const distance = distanceFromOConnellBridge(lat, lng);
+
   const transport = await findClosestTransport(property.id, lat, lng);
+  if (transport.distance == null || transport.distance > 2000) {
+    return null;
+  }
   const transportDurationMin = Math.round(transport.duration / 60);
-  const floorArea = parseInt(property.floorArea.value, 10);
 
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
