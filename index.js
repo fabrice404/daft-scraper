@@ -2,6 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
+const { argv } = require('process');
 
 /// ////////////////////////////////////////////
 // CONSTANTS
@@ -120,7 +121,8 @@ const findClosestTransport = async (id, lat, lng) => {
     .sort((a, b) => a.distance - b.distance)
     .slice(0, 3);
 
-  if (stations[0].distance > 5000) {
+  // if closest station is at more than 3km, ignore api calculation
+  if (stations[0].distance > 3000) {
     return null;
   }
   // calculate walking distsance for the 3 closest stations
@@ -184,6 +186,10 @@ const extractPropertyData = async (property) => {
   const bathrooms = property.numBathrooms ? property.numBathrooms.replace(/[^0-9]/gi, '') : 0;
   const pricePerSquareMeter = Math.ceil(price / property.floorArea.value);
   const floorArea = parseInt(property.floorArea.value, 10);
+  if (floorArea < 130) {
+    return null;
+  }
+
   const [lng, lat] = property.point.coordinates;
   const distance = distanceFromOConnellBridge(lat, lng);
 
@@ -254,8 +260,10 @@ const main = async () => {
   if (!fs.existsSync(CACHE_FOLDER)) { fs.mkdirSync(CACHE_FOLDER, { recursive: true }); }
   if (!fs.existsSync(OUTPUT_FOLDER)) { fs.mkdirSync(OUTPUT_FOLDER, { recursive: true }); }
 
-  for (const city of cities) {
-    await getDaftLocation(city);
+  if (!argv.includes('skip')) {
+    for (const city of cities) {
+      await getDaftLocation(city);
+    }
   }
 
   const ids = [];
