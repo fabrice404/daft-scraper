@@ -2,6 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
+const geolib = require('geolib');
 const { argv } = require('process');
 
 /// ////////////////////////////////////////////
@@ -15,13 +16,16 @@ const OUTPUT_FOLDER = process.env.OUTPUT_FOLDER || `${os.homedir()}/files`;
 const { OPENROUTESERVICE_API_KEY } = process.env;
 const OPENROUTESERVICE_RPM_LIMIT = 40;
 
-// price range filter
+// filter
 const MINUMUM_PRICE = parseInt(process.env.MINUMUM_PRICE, 10);
 const MAXIMUM_PRICE = parseInt(process.env.MAXIMUM_PRICE, 10);
+const MINUMUM_BED = parseInt(process.env.MINUMUM_BED || '1', 10);
+const MINUMUM_BATH = parseInt(process.env.MINUMUM_BATH || '1', 10);
 
 /// ////////////////////////////////////////////
 // CONFIG FILES
 const cities = JSON.parse(fs.readFileSync(`${__dirname}/cities.json`));
+const polygons = JSON.parse(fs.readFileSync(`${__dirname}/polygons.json`));
 const transports = JSON.parse(fs.readFileSync(`${__dirname}/transports.json`));
 
 /**
@@ -39,8 +43,17 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  */
 const getDaftLocation = async (city, page = 1) => {
   console.log(city, page);
+  const parameters = [
+    `salePrice_from=${MINUMUM_PRICE}`,
+    `salePrice_to=${MAXIMUM_PRICE}`,
+    `numBeds_from=${MINUMUM_BED}`,
+    `numBaths_from=${MINUMUM_BATH}`,
+    'sort=publishDateDesc',
+    'pageSize=20',
+    `from=${(page - 1) * 20}`,
+  ];
+  const url = `https://www.daft.ie/property-for-sale/${city}?${parameters.join('&')}`;
   const properties = [];
-  const url = `https://www.daft.ie/property-for-sale/${city}/houses?sort=publishDateDesc&from=${(page - 1) * 20}`;
   const response = await axios.get(url);
   const html = response.data;
   const json = JSON.parse(
@@ -106,7 +119,7 @@ const distanceFromOConnellBridge = (lat, lng) => calculateDistance(
  * @returns
  */
 const findClosestTransport = async (id, lat, lng) => {
-  const file = `${CACHE_FOLDER}/transport-${id}.json`;
+  const file = `${CACHE_FOLDER}/transport/${id}.json`;
   if (fs.existsSync(file)) {
     return JSON.parse(fs.readFileSync(file));
   }
@@ -122,21 +135,54 @@ const findClosestTransport = async (id, lat, lng) => {
     .slice(0, 3);
 
   // if closest station is at more than 3km, ignore api calculation
-  if (stations[0].distance > 3000) {
-    return null;
+  if (stations[0].distance > 3) {
+    stations[0].distance *= 1000;
+    return {
+      ...stations[0],
+      duration: (stations[0].distance * 3600) / 5000,
+    };
   }
   // calculate walking distsance for the 3 closest stations
-  for (const station of stations) {
-    const url = `https://api.openrouteservice.org/v2/directions/foot-walking?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${station.lng},${station.lat}`;
-    const response = await axios.get(url);
-    const { distance, duration } = response.data.features[0].properties.summary;
-    station.distance = distance;
-    station.duration = duration;
+  const postBody = {
+    locations: [
+      [lng, lat],
+      ...stations.map((station) => ([station.lng, station.lat])),
+    ],
+    sources: [0],
+    destinations: [1, 2, 3],
+    metrics: ['distance', 'duration'],
+    units: 'm',
+  };
+  const url = `https://api.openrouteservice.org/v2/matrix/foot-walking?api_key=${OPENROUTESERVICE_API_KEY}`;
+  let result;
+  try {
+    const response = await axios.post(url, postBody);
+    for (let i = 0; i < 3; i += 1) {
+      stations[i].distance = response.data.distances[0][i];
+      stations[i].duration = response.data.durations[0][i];
+    }
     await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
+    [result] = stations.sort((a, b) => a.distance - b.distance);
+    console.log(`Closest transport for ${id}: ${result.name} (${result.type})`);
+    fs.writeFileSync(file, JSON.stringify(result, null, 2));
+  } catch (ex) {
+    console.log(ex);
+    [result] = stations.sort((a, b) => a.distance - b.distance);
   }
-  const result = stations.sort((a, b) => a.distance - b.distance)[0];
-  console.log(`Closest transport for ${id}: ${result.name} (${result.type})`);
-  fs.writeFileSync(file, JSON.stringify(result, null, 2));
+  return result;
+};
+
+const isInPolygons = (latitude, longitude) => {
+  if (polygons.length === 0) {
+    return true;
+  }
+
+  let result = false;
+  polygons.forEach((polygon) => {
+    if (geolib.isPointInPolygon({ latitude, longitude }, polygon)) {
+      result = true;
+    }
+  });
   return result;
 };
 
@@ -154,9 +200,6 @@ const extractPropertyData = async (property) => {
     // exclude properties with no BER rating
     || !property.ber || !property.ber.rating.match(/[A-G]{1}[0-9]/)
 
-    // exluce properties with no price or outside of price range
-    || price === '' || price < MINUMUM_PRICE || price > MAXIMUM_PRICE
-
     // exclude properties without images
     || !property.media || !property.media.images || property.media.images.length === 0
 
@@ -172,8 +215,7 @@ const extractPropertyData = async (property) => {
     case 'A': scoring.ber += 100; break;
     case 'B': scoring.ber += 70; break;
     case 'C': scoring.ber += 20; break;
-    case 'D': scoring.ber += 0; break;
-    default: return null;
+    default: scoring.ber += 0; break;
   }
   switch (property.ber.rating[1]) {
     case '1': scoring.ber += 20; break;
@@ -186,23 +228,23 @@ const extractPropertyData = async (property) => {
   const bathrooms = property.numBathrooms ? property.numBathrooms.replace(/[^0-9]/gi, '') : 0;
   const pricePerSquareMeter = Math.ceil(price / property.floorArea.value);
   const floorArea = parseInt(property.floorArea.value, 10);
-  if (floorArea < 130) {
+  if (floorArea > 400) {
     return null;
   }
 
   const [lng, lat] = property.point.coordinates;
+  if (!isInPolygons(lat, lng)) {
+    return false;
+  }
   const distance = distanceFromOConnellBridge(lat, lng);
 
   const transport = await findClosestTransport(property.id, lat, lng);
-  if (transport.distance == null || transport.distance > 2000) {
-    return null;
-  }
   const transportDurationMin = Math.round(transport.duration / 60);
 
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
   scoring.floorArea = floorArea;
-  scoring.distance = -Math.round((distance * distance) / 10);
+  scoring.distance = -Math.round(distance / 10);
   scoring.transport = -Math.round(transportDurationMin * 2);
   scoring.price = Math.round((700000 - price) / 2000);
   scoring.pricePerSquareMeter = Math.round((5000 - pricePerSquareMeter) / 100);

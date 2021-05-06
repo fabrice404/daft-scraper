@@ -316,5 +316,641 @@
     "name": "Greystones",
     "lat": 53.1442,
     "lng": -6.06085
+  },
+  {
+    "type": "Mainline",
+    "name": "Dublin Connolly",
+    "lat": 53.3531,
+    "lng": -6.24591
+  },
+  {
+    "type": "Mainline",
+    "name": "Dublin Heuston",
+    "lat": 53.3464,
+    "lng": -6.29461
+  },
+  {
+    "type": "Mainline",
+    "name": "Newbridge",
+    "lat": 53.1855,
+    "lng": -6.80807
+  },
+  {
+    "type": "Mainline",
+    "name": "Curragh",
+    "lat": 53.1725,
+    "lng": -6.86245
+  },
+  {
+    "type": "Mainline",
+    "name": "Kildare",
+    "lat": 53.163,
+    "lng": -6.90802
+  },
+  {
+    "type": "Mainline",
+    "name": "Portarlington",
+    "lat": 53.146,
+    "lng": -7.18055
+  },
+  {
+    "type": "Mainline",
+    "name": "Monasterevin",
+    "lat": 53.1454,
+    "lng": -7.06361
+  },
+  {
+    "type": "Mainline",
+    "name": "Portlaoise",
+    "lat": 53.0371,
+    "lng": -7.30086
+  },
+  {
+    "type": "Mainline",
+    "name": "Athy",
+    "lat": 52.992,
+    "lng": -6.9762
+  },
+  {
+    "type": "Mainline",
+    "name": "Roscrea",
+    "lat": 52.9607,
+    "lng": -7.7941
+  },
+  {
+    "type": "Mainline",
+    "name": "Cloughjordan",
+    "lat": 52.9363,
+    "lng": -8.0246
+  },
+  {
+    "type": "Mainline",
+    "name": "Ballybrophy",
+    "lat": 52.8999,
+    "lng": -7.60259
+  },
+  {
+    "type": "Mainline",
+    "name": "Nenagh",
+    "lat": 52.8605,
+    "lng": -8.19471
+  },
+  {
+    "type": "Mainline",
+    "name": "Carlow",
+    "lat": 52.8407,
+    "lng": -6.92217
+  },
+  {
+    "type": "Mainline",
+    "name": "Templemore",
+    "lat": 52.7878,
+    "lng": -7.82293
+  },
+  {
+    "type": "Mainline",
+    "name": "Birdhill",
+    "lat": 52.7656,
+    "lng": -8.44247
+  },
+  {
+    "type": "Mainline",
+    "name": "Castleconnell",
+    "lat": 52.7128,
+    "lng": -8.49794
+  },
+  {
+    "type": "Mainline",
+    "name": "Muine Bheag",
+    "lat": 52.699,
+    "lng": -6.95213
+  },
+  {
+    "type": "Mainline",
+    "name": "Thurles",
+    "lat": 52.6766,
+    "lng": -7.82189
+  },
+  {
+    "type": "Mainline",
+    "name": "Limerick",
+    "lat": 52.6587,
+    "lng": -8.62397
+  },
+  {
+    "type": "Mainline",
+    "name": "Kilkenny",
+    "lat": 52.655,
+    "lng": -7.24498
+  },
+  {
+    "type": "Mainline",
+    "name": "Thomastown",
+    "lat": 52.523,
+    "lng": -7.14891
+  },
+  {
+    "type": "Mainline",
+    "name": "Limerick Junction",
+    "lat": 52.5009,
+    "lng": -8.20003
+  },
+  {
+    "type": "Mainline",
+    "name": "Tipperary",
+    "lat": 52.4701,
+    "lng": -8.1625
+  },
+  {
+    "type": "Mainline",
+    "name": "Cahir",
+    "lat": 52.3777,
+    "lng": -7.92181
+  },
+  {
+    "type": "Mainline",
+    "name": "Clonmel",
+    "lat": 52.3611,
+    "lng": -7.69936
+  },
+  {
+    "type": "Mainline",
+    "name": "Carrick on Suir",
+    "lat": 52.3487,
+    "lng": -7.40354
+  },
+  {
+    "type": "Mainline",
+    "name": "Charleville",
+    "lat": 52.3468,
+    "lng": -8.65362
+  },
+  {
+    "type": "Mainline",
+    "name": "Campile",
+    "lat": 52.2855,
+    "lng": -6.93896
+  },
+  {
+    "type": "Mainline",
+    "name": "Ballycullane",
+    "lat": 52.2834,
+    "lng": -6.83958
+  },
+  {
+    "type": "Mainline",
+    "name": "Rosslare Strand",
+    "lat": 52.2726,
+    "lng": -6.39254
+  },
+  {
+    "type": "Mainline",
+    "name": "Tralee",
+    "lat": 52.271,
+    "lng": -9.69846
+  },
+  {
+    "type": "Mainline",
+    "name": "Wellingtonbridge",
+    "lat": 52.2678,
+    "lng": -6.75392
+  },
+  {
+    "type": "Mainline",
+    "name": "Waterford",
+    "lat": 52.2667,
+    "lng": -7.1183
+  },
+  {
+    "type": "Mainline",
+    "name": "Rosslare Europort",
+    "lat": 52.2531,
+    "lng": -6.33493
+  },
+  {
+    "type": "Mainline",
+    "name": "Bridgetown",
+    "lat": 52.2312,
+    "lng": -6.54918
+  },
+  {
+    "type": "Mainline",
+    "name": "Farranfore",
+    "lat": 52.1733,
+    "lng": -9.55278
+  },
+  {
+    "type": "Mainline",
+    "name": "Mallow",
+    "lat": 52.1396,
+    "lng": -8.65521
+  },
+  {
+    "type": "Mainline",
+    "name": "Banteer",
+    "lat": 52.1287,
+    "lng": -8.89793
+  },
+  {
+    "type": "Mainline",
+    "name": "Rathmore",
+    "lat": 52.0854,
+    "lng": -9.21756
+  },
+  {
+    "type": "Mainline",
+    "name": "Millstreet",
+    "lat": 52.0776,
+    "lng": -9.06973
+  },
+  {
+    "type": "Mainline",
+    "name": "Killarney",
+    "lat": 52.0595,
+    "lng": -9.50198
+  },
+  {
+    "type": "Mainline",
+    "name": "Cork",
+    "lat": 51.9018,
+    "lng": -8.4582
+  },
+  {
+    "type": "Suburban",
+    "name": "Balbriggan",
+    "lat": 53.6118,
+    "lng": -6.18226
+  },
+  {
+    "type": "Suburban",
+    "name": "Skerries",
+    "lat": 53.5741,
+    "lng": -6.11933
+  },
+  {
+    "type": "Suburban",
+    "name": "Rush and Lusk",
+    "lat": 53.5201,
+    "lng": -6.1439
+  },
+  {
+    "type": "Suburban",
+    "name": "Donabate",
+    "lat": 53.4855,
+    "lng": -6.15134
+  },
+  {
+    "type": "Suburban",
+    "name": "Malahide",
+    "lat": 53.4509,
+    "lng": -6.15649
+  },
+  {
+    "type": "Suburban",
+    "name": "M3 Parkway",
+    "lat": 53.4349,
+    "lng": -6.46898
+  },
+  {
+    "type": "Suburban",
+    "name": "Dunboyne",
+    "lat": 53.4175,
+    "lng": -6.46483
+  },
+  {
+    "type": "Suburban",
+    "name": "Portmarnock",
+    "lat": 53.4169,
+    "lng": -6.1512
+  },
+  {
+    "type": "Suburban",
+    "name": "Kilcock",
+    "lat": 53.4043,
+    "lng": -6.67892
+  },
+  {
+    "type": "Suburban",
+    "name": "Sutton",
+    "lat": 53.392,
+    "lng": -6.11448
+  },
+  {
+    "type": "Suburban",
+    "name": "Bayside",
+    "lat": 53.3917,
+    "lng": -6.13678
+  },
+  {
+    "type": "Suburban",
+    "name": "Howth Junction",
+    "lat": 53.3909,
+    "lng": -6.15672
+  },
+  {
+    "type": "Suburban",
+    "name": "Howth",
+    "lat": 53.3891,
+    "lng": -6.07401
+  },
+  {
+    "type": "Suburban",
+    "name": "Kilbarrack",
+    "lat": 53.387,
+    "lng": -6.16163
+  },
+  {
+    "type": "Suburban",
+    "name": "Hansfield",
+    "lat": 53.3853,
+    "lng": -6.44205
+  },
+  {
+    "type": "Suburban",
+    "name": "Clonsilla",
+    "lat": 53.3831,
+    "lng": -6.4242
+  },
+  {
+    "type": "Suburban",
+    "name": "Castleknock",
+    "lat": 53.3816,
+    "lng": -6.37149
+  },
+  {
+    "type": "Suburban",
+    "name": "Raheny",
+    "lat": 53.3815,
+    "lng": -6.17699
+  },
+  {
+    "type": "Suburban",
+    "name": "Harmonstown",
+    "lat": 53.3786,
+    "lng": -6.19131
+  },
+  {
+    "type": "Suburban",
+    "name": "Navan Road Parkway",
+    "lat": 53.3777,
+    "lng": -6.34591
+  },
+  {
+    "type": "Suburban",
+    "name": "Coolmine",
+    "lat": 53.3776,
+    "lng": -6.39072
+  },
+  {
+    "type": "Suburban",
+    "name": "Ashtown",
+    "lat": 53.3755,
+    "lng": -6.33135
+  },
+  {
+    "type": "Suburban",
+    "name": "Leixlip (Confey)",
+    "lat": 53.3743,
+    "lng": -6.48624
+  },
+  {
+    "type": "Suburban",
+    "name": "Killester",
+    "lat": 53.373,
+    "lng": -6.20442
+  },
+  {
+    "type": "Suburban",
+    "name": "Broombridge",
+    "lat": 53.3725,
+    "lng": -6.29869
+  },
+  {
+    "type": "Suburban",
+    "name": "Leixlip (Louisa Bridge)",
+    "lat": 53.3704,
+    "lng": -6.50598
+  },
+  {
+    "type": "Suburban",
+    "name": "Drumcondra",
+    "lat": 53.3632,
+    "lng": -6.25908
+  },
+  {
+    "type": "Suburban",
+    "name": "Clontarf Road",
+    "lat": 53.3629,
+    "lng": -6.22753
+  },
+  {
+    "type": "Suburban",
+    "name": "Dublin Connolly",
+    "lat": 53.3531,
+    "lng": -6.24591
+  },
+  {
+    "type": "Suburban",
+    "name": "Docklands",
+    "lat": 53.3509,
+    "lng": -6.23929
+  },
+  {
+    "type": "Suburban",
+    "name": "Tara Street",
+    "lat": 53.347,
+    "lng": -6.25425
+  },
+  {
+    "type": "Suburban",
+    "name": "Dublin Heuston",
+    "lat": 53.3464,
+    "lng": -6.29461
+  },
+  {
+    "type": "Suburban",
+    "name": "Dublin Pearse",
+    "lat": 53.3433,
+    "lng": -6.24829
+  },
+  {
+    "type": "Suburban",
+    "name": "Grand Canal Dock",
+    "lat": 53.3397,
+    "lng": -6.23773
+  },
+  {
+    "type": "Suburban",
+    "name": "Adamstown",
+    "lat": 53.3353,
+    "lng": -7
+  },
+  {
+    "type": "Suburban",
+    "name": "Adamstown",
+    "lat": 53.3353,
+    "lng": -6.45233
+  },
+  {
+    "type": "Suburban",
+    "name": "Adamstown",
+    "lat": 53.3353,
+    "lng": -6.45233
+  },
+  {
+    "type": "Suburban",
+    "name": "Lansdowne Road",
+    "lat": 53.3347,
+    "lng": -6.22979
+  },
+  {
+    "type": "Suburban",
+    "name": "Park West and Cherry Orchard",
+    "lat": 53.334,
+    "lng": -6.37868
+  },
+  {
+    "type": "Suburban",
+    "name": "PARK WEST",
+    "lat": 53.334,
+    "lng": -6.37868
+  },
+  {
+    "type": "Suburban",
+    "name": "Park West and Cherry Orchard",
+    "lat": 53.334,
+    "lng": -6.37868
+  },
+  {
+    "type": "Suburban",
+    "name": "Clondalkin",
+    "lat": 53.3334,
+    "lng": -6.40628
+  },
+  {
+    "type": "Suburban",
+    "name": "Clondalkin",
+    "lat": 53.3334,
+    "lng": -6.40628
+  },
+  {
+    "type": "Suburban",
+    "name": "Clondalkin",
+    "lat": 53.3334,
+    "lng": -6.40628
+  },
+  {
+    "type": "Suburban",
+    "name": "Hazelhatch",
+    "lat": 53.3223,
+    "lng": -6.52356
+  },
+  {
+    "type": "Suburban",
+    "name": "Hazelhatch",
+    "lat": 53.3223,
+    "lng": -6.52356
+  },
+  {
+    "type": "Suburban",
+    "name": "Hazelhatch",
+    "lat": 53.3223,
+    "lng": -6.52356
+  },
+  {
+    "type": "Suburban",
+    "name": "Sydney Parade",
+    "lat": 53.3206,
+    "lng": -6.21112
+  },
+  {
+    "type": "Suburban",
+    "name": "Booterstown",
+    "lat": 53.3099,
+    "lng": -6.19498
+  },
+  {
+    "type": "Suburban",
+    "name": "Blackrock",
+    "lat": 53.3027,
+    "lng": -6.17833
+  },
+  {
+    "type": "Suburban",
+    "name": "Seapoint",
+    "lat": 53.2991,
+    "lng": -6.16512
+  },
+  {
+    "type": "Suburban",
+    "name": "Salthill and Monkstown",
+    "lat": 53.2954,
+    "lng": -6.15206
+  },
+  {
+    "type": "Suburban",
+    "name": "Dun Laoghaire",
+    "lat": 53.2951,
+    "lng": -6.13498
+  },
+  {
+    "type": "Suburban",
+    "name": "Sandycove",
+    "lat": 53.2878,
+    "lng": -6.12712
+  },
+  {
+    "type": "Suburban",
+    "name": "Glenageary",
+    "lat": 53.2812,
+    "lng": -6.12289
+  },
+  {
+    "type": "Suburban",
+    "name": "Dalkey",
+    "lat": 53.2756,
+    "lng": -6.10333
+  },
+  {
+    "type": "Suburban",
+    "name": "Killiney",
+    "lat": 53.2557,
+    "lng": -6.11317
+  },
+  {
+    "type": "Suburban",
+    "name": "Sallins",
+    "lat": 53.2469,
+    "lng": -6.66386
+  },
+  {
+    "type": "Suburban",
+    "name": "Shankill",
+    "lat": 53.2364,
+    "lng": -6.11691
+  },
+  {
+    "type": "Suburban",
+    "name": "Woodbrook",
+    "lat": 53.22,
+    "lng": -6.1101
+  },
+  {
+    "type": "Suburban",
+    "name": "Bray",
+    "lat": 53.2043,
+    "lng": -6.10046
+  },
+  {
+    "type": "Suburban",
+    "name": "Greystones",
+    "lat": 53.1442,
+    "lng": -6.06085
+  },
+  {
+    "type": "Suburban",
+    "name": "Kilcoole",
+    "lat": 53.107,
+    "lng": -6.04112
   }
 ]
