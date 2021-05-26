@@ -134,15 +134,7 @@ const findClosestTransport = async (id, lat, lng) => {
     .sort((a, b) => a.distance - b.distance)
     .slice(0, 3);
 
-  // if closest station is at more than 3km, ignore api calculation
-  if (stations[0].distance > 3) {
-    stations[0].distance *= 1000;
-    return {
-      ...stations[0],
-      duration: (stations[0].distance * 3600) / 5000,
-    };
-  }
-  // calculate walking distsance for the 3 closest stations
+  // calculate driving distsance for the 3 closest stations
   const postBody = {
     locations: [
       [lng, lat],
@@ -153,7 +145,7 @@ const findClosestTransport = async (id, lat, lng) => {
     metrics: ['distance', 'duration'],
     units: 'm',
   };
-  const url = `https://api.openrouteservice.org/v2/matrix/foot-walking?api_key=${OPENROUTESERVICE_API_KEY}`;
+  const url = `https://api.openrouteservice.org/v2/matrix/driving-car?api_key=${OPENROUTESERVICE_API_KEY}`;
   let result;
   try {
     const response = await axios.post(url, postBody);
@@ -228,7 +220,7 @@ const extractPropertyData = async (property) => {
   const bathrooms = property.numBathrooms ? property.numBathrooms.replace(/[^0-9]/gi, '') : 0;
   const pricePerSquareMeter = Math.ceil(price / property.floorArea.value);
   const floorArea = parseInt(property.floorArea.value, 10);
-  if (floorArea > 400) {
+  if (floorArea > 400 || floorArea < 140) {
     return null;
   }
 
@@ -240,13 +232,14 @@ const extractPropertyData = async (property) => {
 
   const transport = await findClosestTransport(property.id, lat, lng);
   const transportDurationMin = Math.round(transport.duration / 60);
+  const middlePrice = MAXIMUM_PRICE - ((MAXIMUM_PRICE - MINUMUM_PRICE) / 2);
 
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
   scoring.floorArea = floorArea;
   scoring.distance = -Math.round(distance / 10);
-  scoring.transport = -Math.round(transportDurationMin * 2);
-  scoring.price = Math.round((700000 - price) / 2000);
+  scoring.transport = -Math.round(transportDurationMin * transportDurationMin);
+  scoring.price = Math.round((middlePrice - price) / 1000);
   scoring.pricePerSquareMeter = Math.round((5000 - pricePerSquareMeter) / 100);
 
   scoring.type = 0;
@@ -254,9 +247,7 @@ const extractPropertyData = async (property) => {
     case 'Detached': scoring.type = 100; break;
     case 'Semi-D': scoring.type = 50; break;
     case 'Bungalow': scoring.type = 30; break;
-    case 'End of Terrace': scoring.type = 20; break;
-    case 'Terrace': scoring.type = -100; break;
-    default: break;
+    default: scoring.type = -100; break;
   }
 
   /* eslint-disable no-param-reassign */
