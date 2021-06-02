@@ -2,7 +2,6 @@ require('dotenv').config();
 const axios = require('axios');
 const fs = require('fs');
 const os = require('os');
-const geolib = require('geolib');
 const { argv } = require('process');
 
 /// ////////////////////////////////////////////
@@ -24,8 +23,7 @@ const MINUMUM_BATH = parseInt(process.env.MINUMUM_BATH || '1', 10);
 
 /// ////////////////////////////////////////////
 // CONFIG FILES
-const cities = JSON.parse(fs.readFileSync(`${__dirname}/cities.json`));
-const polygons = JSON.parse(fs.readFileSync(`${__dirname}/polygons.json`));
+const stores = JSON.parse(fs.readFileSync(`${__dirname}/stores.json`));
 const transports = JSON.parse(fs.readFileSync(`${__dirname}/transports.json`));
 
 /**
@@ -97,7 +95,7 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
   dist = Math.acos(dist);
   dist = (dist * 180) / Math.PI;
   dist = dist * 60 * 1.1515 * 1.609344;
-  return dist;
+  return Math.round(dist * 10) / 10;
 };
 
 /**
@@ -123,59 +121,67 @@ const findClosestTransport = async (id, lat, lng) => {
   if (fs.existsSync(file)) {
     return JSON.parse(fs.readFileSync(file));
   }
-  console.log(`No cache found for property ${id}, calculating closest transport`);
 
-  // calculate distance as the crow flies for each station
-  const stations = [...transports]
+  const station = [...transports]
     .map((transport) => ({
       ...transport,
       distance: calculateDistance(lat, lng, transport.lat, transport.lng),
     }))
     .sort((a, b) => a.distance - b.distance)
-    .slice(0, 3);
+    .shift();
 
-  // calculate driving distsance for the 3 closest stations
-  const postBody = {
-    locations: [
-      [lng, lat],
-      ...stations.map((station) => ([station.lng, station.lat])),
-    ],
-    sources: [0],
-    destinations: [1, 2, 3],
-    metrics: ['distance', 'duration'],
-    units: 'm',
-  };
-  const url = `https://api.openrouteservice.org/v2/matrix/driving-car?api_key=${OPENROUTESERVICE_API_KEY}`;
-  let result;
-  try {
-    const response = await axios.post(url, postBody);
-    for (let i = 0; i < 3; i += 1) {
-      stations[i].distance = response.data.distances[0][i];
-      stations[i].duration = response.data.durations[0][i];
-    }
-    await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
-    [result] = stations.sort((a, b) => a.distance - b.distance);
-    console.log(`Closest transport for ${id}: ${result.name} (${result.type})`);
-    fs.writeFileSync(file, JSON.stringify(result, null, 2));
-  } catch (ex) {
-    console.log(ex);
-    [result] = stations.sort((a, b) => a.distance - b.distance);
+  let transportType = '';
+  if (station.type === 'Commuter' && station.distance < 10) {
+    transportType = 'driving-car';
+  } else if (station.distance < 2) {
+    transportType = 'foot-walking';
+  } else {
+    return null;
   }
-  return result;
+
+  const url = `https://api.openrouteservice.org/v2/directions/${transportType}?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${station.lng},${station.lat}`;
+  const response = await axios.get(url);
+  const { distance, duration } = response.data.features[0].properties.summary;
+  station.distance = Math.round(distance / 100) / 10;
+  station.duration = Math.round(duration / 60);
+  await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
+  fs.writeFileSync(file, JSON.stringify(station, null, 2));
+
+  console.log(`${id}: ${station.name} (${station.type}), ${station.distance} km, ${station.duration} min`);
+  return station;
 };
 
-const isInPolygons = (latitude, longitude) => {
-  if (polygons.length === 0) {
-    return true;
+/**
+ * Calculates distance between given GPS location and stores
+ * @param {string} id Property identifier to store in cache
+ * @param {number} lat
+ * @param {number} lng
+ * @returns
+ */
+const findClosestStore = async (id, lat, lng) => {
+  const file = `${CACHE_FOLDER}/store/${id}.json`;
+  if (fs.existsSync(file)) {
+    return JSON.parse(fs.readFileSync(file));
   }
 
-  let result = false;
-  polygons.forEach((polygon) => {
-    if (geolib.isPointInPolygon({ latitude, longitude }, polygon)) {
-      result = true;
-    }
-  });
-  return result;
+  const store = [...stores]
+    .map((transport) => ({
+      ...transport,
+      distance: calculateDistance(lat, lng, transport.lat, transport.lng),
+    }))
+    .sort((a, b) => a.distance - b.distance)
+    .shift();
+
+  const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${store.lng},${store.lat}`;
+  const response = await axios.get(url);
+  const { distance, duration } = response.data.features[0].properties.summary;
+  store.distance = Math.round(distance / 100) / 10;
+  store.duration = Math.round(duration / 60);
+  await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
+  fs.writeFileSync(file, JSON.stringify(store, null, 2));
+
+  console.log(`${id}: ${store.name}, ${store.distance} km, ${store.duration} min`);
+  return store;
 };
 
 /**
@@ -204,41 +210,46 @@ const extractPropertyData = async (property) => {
   const scoring = {};
   scoring.ber = 0;
   switch (property.ber.rating[0]) {
-    case 'A': scoring.ber += 100; break;
-    case 'B': scoring.ber += 70; break;
-    case 'C': scoring.ber += 20; break;
-    default: scoring.ber += 0; break;
+    case 'A': scoring.ber = 200; break;
+    case 'B': scoring.ber = 70; break;
+    case 'C': scoring.ber = 0; break;
+    case 'D': scoring.ber = -50; break;
+    case 'E': scoring.ber = -100; break;
+    case 'F': scoring.ber = -150; break;
+    case 'G': scoring.ber = -200; break;
+    default: break;
   }
   switch (property.ber.rating[1]) {
-    case '1': scoring.ber += 20; break;
-    case '2': scoring.ber += 10; break;
-    case '3': scoring.ber += 5; break;
-    default: scoring.ber += 0; break;
+    case '1': scoring.ber += 0.2 * Math.abs(scoring.ber); break;
+    case '2': scoring.ber += 0.1 * Math.abs(scoring.ber); break;
+    case '3': scoring.ber += 0.05 * Math.abs(scoring.ber); break;
+    default: break;
   }
+  scoring.ber = Math.round(scoring.ber);
 
   const bedrooms = property.numBedrooms ? property.numBedrooms.replace(/[^0-9]/gi, '') : 0;
   const bathrooms = property.numBathrooms ? property.numBathrooms.replace(/[^0-9]/gi, '') : 0;
   const pricePerSquareMeter = Math.ceil(price / property.floorArea.value);
   const floorArea = parseInt(property.floorArea.value, 10);
-  if (floorArea > 400 || floorArea < 140) {
+  if (floorArea > 400 || floorArea < 100) {
     return null;
   }
 
   const [lng, lat] = property.point.coordinates;
-  if (!isInPolygons(lat, lng)) {
-    return false;
-  }
   const distance = distanceFromOConnellBridge(lat, lng);
-
   const transport = await findClosestTransport(property.id, lat, lng);
-  const transportDurationMin = Math.round(transport.duration / 60);
+  if (transport == null) {
+    return null;
+  }
+  const store = await findClosestStore(property.id, lat, lng);
   const middlePrice = MAXIMUM_PRICE - ((MAXIMUM_PRICE - MINUMUM_PRICE) / 2);
 
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
-  scoring.floorArea = floorArea;
+  scoring.floorArea = (floorArea - 150) * 2;
   scoring.distance = -Math.round(distance / 10);
-  scoring.transport = -Math.round(transportDurationMin * transportDurationMin);
+  scoring.transport = -Math.round(transport.duration * 3);
+  scoring.store = -Math.round(store.duration * 2);
   scoring.price = Math.round((middlePrice - price) / 1000);
   scoring.pricePerSquareMeter = Math.round((5000 - pricePerSquareMeter) / 100);
 
@@ -281,6 +292,7 @@ const extractPropertyData = async (property) => {
     pricePerSquareMeter,
     distance,
     transport,
+    store,
     scoring,
   };
 };
@@ -294,9 +306,7 @@ const main = async () => {
   if (!fs.existsSync(OUTPUT_FOLDER)) { fs.mkdirSync(OUTPUT_FOLDER, { recursive: true }); }
 
   if (!argv.includes('skip')) {
-    for (const city of cities) {
-      await getDaftLocation(city);
-    }
+    await getDaftLocation('ireland');
   }
 
   const ids = [];

@@ -1,0 +1,698 @@
+[
+  {
+    "name": "Cork - Bishopstown SC",
+    "lat": 51.8798,
+    "lng": -8.52072,
+    "url": "https://www.dunnesstores.com/store-locator/stores/10"
+  },
+  {
+    "name": "Nenagh - Annsbrook",
+    "lat": 52.86098,
+    "lng": -8.21097,
+    "url": "https://www.dunnesstores.com/store-locator/stores/100"
+  },
+  {
+    "name": "Rathmines - Home",
+    "lat": 53.323063,
+    "lng": -6.264493,
+    "url": "https://www.dunnesstores.com/store-locator/stores/1001"
+  },
+  {
+    "name": "Newbridge SC",
+    "lat": 53.17493,
+    "lng": -6.80266,
+    "url": "https://www.dunnesstores.com/store-locator/stores/101"
+  },
+  {
+    "name": "North Earl Street",
+    "lat": 53.34997,
+    "lng": -6.25984,
+    "url": "https://www.dunnesstores.com/store-locator/stores/103"
+  },
+  {
+    "name": "Nutgrove ",
+    "lat": 53.2907,
+    "lng": -6.26783,
+    "url": "https://www.dunnesstores.com/store-locator/stores/111"
+  },
+  {
+    "name": "Clonmel - Oakville ",
+    "lat": 52.35707,
+    "lng": -7.70227,
+    "url": "https://www.dunnesstores.com/store-locator/stores/112"
+  },
+  {
+    "name": "Wexford - Redmond Sq",
+    "lat": 52.34274,
+    "lng": -6.46563,
+    "url": "https://www.dunnesstores.com/store-locator/stores/113"
+  },
+  {
+    "name": "Cork - Patrick St",
+    "lat": 51.8989,
+    "lng": -8.47159,
+    "url": "https://www.dunnesstores.com/store-locator/stores/115"
+  },
+  {
+    "name": "Limerick - Parkway ",
+    "lat": 52.66273,
+    "lng": -8.59688,
+    "url": "https://www.dunnesstores.com/store-locator/stores/117"
+  },
+  {
+    "name": "Portmarnock",
+    "lat": 53.43459,
+    "lng": -6.13048,
+    "url": "https://www.dunnesstores.com/store-locator/stores/118"
+  },
+  {
+    "name": "Portlaoise - Green Rd",
+    "lat": 53.0399,
+    "lng": -7.30627,
+    "url": "https://www.dunnesstores.com/store-locator/stores/119"
+  },
+  {
+    "name": "Ballina",
+    "lat": 54.11572,
+    "lng": -9.15251,
+    "url": "https://www.dunnesstores.com/store-locator/stores/12"
+  },
+  {
+    "name": "Swords - Pavilions ",
+    "lat": 53.45336,
+    "lng": -6.22002,
+    "url": "https://www.dunnesstores.com/store-locator/stores/123"
+  },
+  {
+    "name": "Sligo - Wine Street",
+    "lat": 54.27178,
+    "lng": -8.47899,
+    "url": "https://www.dunnesstores.com/store-locator/stores/124"
+  },
+  {
+    "name": "Sligo - Cranmore",
+    "lat": 54.26864,
+    "lng": -8.46627,
+    "url": "https://www.dunnesstores.com/store-locator/stores/125"
+  },
+  {
+    "name": "Stillorgan ",
+    "lat": 53.28989,
+    "lng": -6.20073,
+    "url": "https://www.dunnesstores.com/store-locator/stores/127"
+  },
+  {
+    "name": "Stephen's Green",
+    "lat": 53.34032,
+    "lng": -6.26334,
+    "url": "https://www.dunnesstores.com/store-locator/stores/128"
+  },
+  {
+    "name": "Rathmines - Swan Ctr",
+    "lat": 53.3232,
+    "lng": -6.26515,
+    "url": "https://www.dunnesstores.com/store-locator/stores/129"
+  },
+  {
+    "name": "Bray - Fashion and Home",
+    "lat": 53.20298,
+    "lng": -6.10982,
+    "url": "https://www.dunnesstores.com/store-locator/stores/13"
+  },
+  {
+    "name": "Galway - Terryland ",
+    "lat": 53.28366,
+    "lng": -9.04621,
+    "url": "https://www.dunnesstores.com/store-locator/stores/130"
+  },
+  {
+    "name": "Tralee - Horan",
+    "lat": 52.27033,
+    "lng": -9.69112,
+    "url": "https://www.dunnesstores.com/store-locator/stores/134"
+  },
+  {
+    "name": "The Square - Tallaght",
+    "lat": 53.28655,
+    "lng": -6.37178,
+    "url": "https://www.dunnesstores.com/store-locator/stores/135"
+  },
+  {
+    "name": "Tralee - NCR",
+    "lat": 52.27188,
+    "lng": -9.70246,
+    "url": "https://www.dunnesstores.com/store-locator/stores/137"
+  },
+  {
+    "name": "Tullamore - Church Rd",
+    "lat": 53.27307,
+    "lng": -7.48448,
+    "url": "https://www.dunnesstores.com/store-locator/stores/138"
+  },
+  {
+    "name": "Waterford - City Sq",
+    "lat": 52.26021,
+    "lng": -7.1102,
+    "url": "https://www.dunnesstores.com/store-locator/stores/141"
+  },
+  {
+    "name": "Enniscorthy",
+    "lat": 52.50288,
+    "lng": -6.56926,
+    "url": "https://www.dunnesstores.com/store-locator/stores/142"
+  },
+  {
+    "name": "Galway - Westside",
+    "lat": 53.27652,
+    "lng": -9.07574,
+    "url": "https://www.dunnesstores.com/store-locator/stores/144"
+  },
+  {
+    "name": "Tullamore - Bridge Ctr",
+    "lat": 53.27459,
+    "lng": -7.49301,
+    "url": "https://www.dunnesstores.com/store-locator/stores/146"
+  },
+  {
+    "name": "Thurles",
+    "lat": 52.67487,
+    "lng": -7.81164,
+    "url": "https://www.dunnesstores.com/store-locator/stores/148"
+  },
+  {
+    "name": "Waterford - Michael St",
+    "lat": 52.25975,
+    "lng": -7.11156,
+    "url": "https://www.dunnesstores.com/store-locator/stores/149"
+  },
+  {
+    "name": "Athlone - Montree, ",
+    "lat": 53.42826,
+    "lng": -7.94239,
+    "url": "https://www.dunnesstores.com/store-locator/stores/15"
+  },
+  {
+    "name": "Portlaoise - Kyle Centre",
+    "lat": 53.03002,
+    "lng": -7.29702,
+    "url": "https://www.dunnesstores.com/store-locator/stores/150"
+  },
+  {
+    "name": "Northside",
+    "lat": 53.39552,
+    "lng": -6.21281,
+    "url": "https://www.dunnesstores.com/store-locator/stores/152"
+  },
+  {
+    "name": "Swords - Rathbeale",
+    "lat": 53.46236,
+    "lng": -6.23011,
+    "url": "https://www.dunnesstores.com/store-locator/stores/154"
+  },
+  {
+    "name": "Galway - Edward Square",
+    "lat": 53.2731,
+    "lng": -9.05063,
+    "url": "https://www.dunnesstores.com/store-locator/stores/155"
+  },
+  {
+    "name": "Limerick - Harveys Quay",
+    "lat": 52.6634,
+    "lng": -8.63002,
+    "url": "https://www.dunnesstores.com/store-locator/stores/156"
+  },
+  {
+    "name": "Clonakilty ",
+    "lat": 51.62095,
+    "lng": -8.90493,
+    "url": "https://www.dunnesstores.com/store-locator/stores/157"
+  },
+  {
+    "name": "Drogheda - Scotch Hall ",
+    "lat": 53.71367,
+    "lng": -6.34546,
+    "url": "https://www.dunnesstores.com/store-locator/stores/160"
+  },
+  {
+    "name": "Drogheda West Street",
+    "lat": 53.71482,
+    "lng": -6.35105,
+    "url": "https://www.dunnesstores.com/store-locator/stores/161"
+  },
+  {
+    "name": "Navan - Grocery",
+    "lat": 53.65215,
+    "lng": -6.68738,
+    "url": "https://www.dunnesstores.com/store-locator/stores/163"
+  },
+  {
+    "name": "Bray - Grocery",
+    "lat": 53.20461,
+    "lng": -6.1061,
+    "url": "https://www.dunnesstores.com/store-locator/stores/164"
+  },
+  {
+    "name": "Dungarvan",
+    "lat": 52.09068,
+    "lng": -7.62237,
+    "url": "https://www.dunnesstores.com/store-locator/stores/166"
+  },
+  {
+    "name": "Shannon ",
+    "lat": 52.71015,
+    "lng": -8.87803,
+    "url": "https://www.dunnesstores.com/store-locator/stores/168"
+  },
+  {
+    "name": "Ongar Village",
+    "lat": 53.39554,
+    "lng": -6.43936,
+    "url": "https://www.dunnesstores.com/store-locator/stores/169"
+  },
+  {
+    "name": "Limerick - Childers Road",
+    "lat": 52.65643,
+    "lng": -8.59513,
+    "url": "https://www.dunnesstores.com/store-locator/stores/170"
+  },
+  {
+    "name": "Leopardstown",
+    "lat": 53.25917,
+    "lng": -6.19749,
+    "url": "https://www.dunnesstores.com/store-locator/stores/171"
+  },
+  {
+    "name": "Carlow - Sleaty Rd",
+    "lat": 52.84515,
+    "lng": -6.94589,
+    "url": "https://www.dunnesstores.com/store-locator/stores/172"
+  },
+  {
+    "name": "Beacon Court",
+    "lat": 53.27791,
+    "lng": -6.21642,
+    "url": "https://www.dunnesstores.com/store-locator/stores/173"
+  },
+  {
+    "name": "Macroom",
+    "lat": 51.90521,
+    "lng": -8.95381,
+    "url": "https://www.dunnesstores.com/store-locator/stores/175"
+  },
+  {
+    "name": "Tipperary",
+    "lat": 52.47789,
+    "lng": -8.17712,
+    "url": "https://www.dunnesstores.com/store-locator/stores/176"
+  },
+  {
+    "name": "Arklow - Bridgewater Ctr",
+    "lat": 52.79928,
+    "lng": -6.14627,
+    "url": "https://www.dunnesstores.com/store-locator/stores/177"
+  },
+  {
+    "name": "Charlestown",
+    "lat": 53.40328,
+    "lng": -6.30358,
+    "url": "https://www.dunnesstores.com/store-locator/stores/178"
+  },
+  {
+    "name": "Kilkenny  - MacDonagh Junction",
+    "lat": 52.65414,
+    "lng": -7.24478,
+    "url": "https://www.dunnesstores.com/store-locator/stores/179"
+  },
+  {
+    "name": "Gorey",
+    "lat": 52.67208,
+    "lng": -6.29663,
+    "url": "https://www.dunnesstores.com/store-locator/stores/180"
+  },
+  {
+    "name": "Cork - Charleville",
+    "lat": 52.35386,
+    "lng": -8.68006,
+    "url": "https://www.dunnesstores.com/store-locator/stores/181"
+  },
+  {
+    "name": "Dundalk - Neighbourhood",
+    "lat": 53.98618,
+    "lng": -6.38025,
+    "url": "https://www.dunnesstores.com/store-locator/stores/182"
+  },
+  {
+    "name": "Citywest ",
+    "lat": 53.28226,
+    "lng": -6.42273,
+    "url": "https://www.dunnesstores.com/store-locator/stores/183"
+  },
+  {
+    "name": "Galway - Briarhill",
+    "lat": 53.29053,
+    "lng": -8.98773,
+    "url": "https://www.dunnesstores.com/store-locator/stores/184"
+  },
+  {
+    "name": "Galway - Knocknacarra",
+    "lat": 53.27268,
+    "lng": -9.09949,
+    "url": "https://www.dunnesstores.com/store-locator/stores/186"
+  },
+  {
+    "name": "Castlebar",
+    "lat": 53.85591,
+    "lng": -9.30159,
+    "url": "https://www.dunnesstores.com/store-locator/stores/19"
+  },
+  {
+    "name": "Monkstown - Outer Spaces",
+    "lat": 53.293958,
+    "lng": -6.151742,
+    "url": "https://www.dunnesstores.com/store-locator/stores/206"
+  },
+  {
+    "name": "Playwright",
+    "lat": 53.29459,
+    "lng": -6.16946,
+    "url": "https://www.dunnesstores.com/store-locator/stores/208"
+  },
+  {
+    "name": "Maynooth",
+    "lat": 53.38205,
+    "lng": -6.59411,
+    "url": "https://www.dunnesstores.com/store-locator/stores/214"
+  },
+  {
+    "name": "Cavan - Home",
+    "lat": 53.99014,
+    "lng": -7.3599,
+    "url": "https://www.dunnesstores.com/store-locator/stores/22"
+  },
+  {
+    "name": "Longford",
+    "lat": 53.72573,
+    "lng": -7.7858,
+    "url": "https://www.dunnesstores.com/store-locator/stores/230"
+  },
+  {
+    "name": "Saggart",
+    "lat": 53.2794,
+    "lng": -6.44548,
+    "url": "https://www.dunnesstores.com/store-locator/stores/260"
+  },
+  {
+    "name": "Clondalkin - The Mill",
+    "lat": 53.32444,
+    "lng": -6.39633,
+    "url": "https://www.dunnesstores.com/store-locator/stores/27"
+  },
+  {
+    "name": "Cavan - Church Street",
+    "lat": 53.99289,
+    "lng": -7.36011,
+    "url": "https://www.dunnesstores.com/store-locator/stores/30"
+  },
+  {
+    "name": "Cornelscourt",
+    "lat": 53.26548,
+    "lng": -6.15981,
+    "url": "https://www.dunnesstores.com/store-locator/stores/31"
+  },
+  {
+    "name": "Naas",
+    "lat": 53.219343,
+    "lng": -6.663557,
+    "url": "https://www.dunnesstores.com/store-locator/stores/329"
+  },
+  {
+    "name": "Blanchardstown",
+    "lat": 53.39385,
+    "lng": -6.39121,
+    "url": "https://www.dunnesstores.com/store-locator/stores/33"
+  },
+  {
+    "name": "Crumlin",
+    "lat": 53.33006,
+    "lng": -6.30011,
+    "url": "https://www.dunnesstores.com/store-locator/stores/34"
+  },
+  {
+    "name": "Newtownmountkennedy",
+    "lat": 53.09128,
+    "lng": -6.11314,
+    "url": "https://www.dunnesstores.com/store-locator/stores/348"
+  },
+  {
+    "name": "Drogheda - Southgate ",
+    "lat": 53.7023,
+    "lng": -6.31113,
+    "url": "https://www.dunnesstores.com/store-locator/stores/358"
+  },
+  {
+    "name": "Donaghmede",
+    "lat": 53.39476,
+    "lng": -6.16213,
+    "url": "https://www.dunnesstores.com/store-locator/stores/37"
+  },
+  {
+    "name": "Cork - Douglas Court",
+    "lat": 51.87904,
+    "lng": -8.43147,
+    "url": "https://www.dunnesstores.com/store-locator/stores/38"
+  },
+  {
+    "name": "Athlone - Irishtown",
+    "lat": 53.42207,
+    "lng": -7.93548,
+    "url": "https://www.dunnesstores.com/store-locator/stores/4"
+  },
+  {
+    "name": "Drogheda -  Town Ctr",
+    "lat": 53.71387,
+    "lng": -6.35177,
+    "url": "https://www.dunnesstores.com/store-locator/stores/40"
+  },
+  {
+    "name": "Clonmel - Davis Road ",
+    "lat": 52.356992,
+    "lng": -7.684382,
+    "url": "https://www.dunnesstores.com/store-locator/stores/400"
+  },
+  {
+    "name": "Dundalk - Ard Easmuinn",
+    "lat": 54.00745,
+    "lng": -6.41516,
+    "url": "https://www.dunnesstores.com/store-locator/stores/42"
+  },
+  {
+    "name": "Dun Laoghaire",
+    "lat": 53.2919,
+    "lng": -6.13547,
+    "url": "https://www.dunnesstores.com/store-locator/stores/44"
+  },
+  {
+    "name": "Ennis",
+    "lat": 52.84295,
+    "lng": -8.98087,
+    "url": "https://www.dunnesstores.com/store-locator/stores/45"
+  },
+  {
+    "name": "Roscrea",
+    "lat": 52.95237,
+    "lng": -7.79566,
+    "url": "https://www.dunnesstores.com/store-locator/stores/454"
+  },
+  {
+    "name": "Finglas - Cardiffsbridge SC",
+    "lat": 53.38481,
+    "lng": -6.31207,
+    "url": "https://www.dunnesstores.com/store-locator/stores/47"
+  },
+  {
+    "name": "Galway - Eyre Square",
+    "lat": 53.27277,
+    "lng": -9.04996,
+    "url": "https://www.dunnesstores.com/store-locator/stores/49"
+  },
+  {
+    "name": "George's St. Food",
+    "lat": 53.34281,
+    "lng": -6.26412,
+    "url": "https://www.dunnesstores.com/store-locator/stores/52"
+  },
+  {
+    "name": "Cork - Blackpool",
+    "lat": 51.91421,
+    "lng": -8.47188,
+    "url": "https://www.dunnesstores.com/store-locator/stores/53"
+  },
+  {
+    "name": "Grafton Street",
+    "lat": 53.34055,
+    "lng": -6.26107,
+    "url": "https://www.dunnesstores.com/store-locator/stores/55"
+  },
+  {
+    "name": "Henry Street",
+    "lat": 53.34944,
+    "lng": -6.2646,
+    "url": "https://www.dunnesstores.com/store-locator/stores/56"
+  },
+  {
+    "name": "Ballyvolane",
+    "lat": 51.91614,
+    "lng": -8.44821,
+    "url": "https://www.dunnesstores.com/store-locator/stores/6"
+  },
+  {
+    "name": "Balbriggan",
+    "lat": 53.61304,
+    "lng": -6.20644,
+    "url": "https://www.dunnesstores.com/store-locator/stores/60"
+  },
+  {
+    "name": "Mallow",
+    "lat": 52.13741,
+    "lng": -8.64163,
+    "url": "https://www.dunnesstores.com/store-locator/stores/61"
+  },
+  {
+    "name": "Ilac Centre",
+    "lat": 53.35056,
+    "lng": -6.26336,
+    "url": "https://www.dunnesstores.com/store-locator/stores/62"
+  },
+  {
+    "name": "Kilkenny - Kieran St",
+    "lat": 52.65269,
+    "lng": -7.25203,
+    "url": "https://www.dunnesstores.com/store-locator/stores/66"
+  },
+  {
+    "name": "Limerick - Jetland",
+    "lat": 52.66977,
+    "lng": -8.66186,
+    "url": "https://www.dunnesstores.com/store-locator/stores/67"
+  },
+  {
+    "name": "Killarney",
+    "lat": 52.05894,
+    "lng": -9.51311,
+    "url": "https://www.dunnesstores.com/store-locator/stores/68"
+  },
+  {
+    "name": "Letterkenny - Forte",
+    "lat": 54.94723,
+    "lng": -7.72984,
+    "url": "https://www.dunnesstores.com/store-locator/stores/69"
+  },
+  {
+    "name": "Ashleaf SC",
+    "lat": 53.31527,
+    "lng": -6.31843,
+    "url": "https://www.dunnesstores.com/store-locator/stores/7"
+  },
+  {
+    "name": "Kilnamanagh",
+    "lat": 53.29874,
+    "lng": -6.35978,
+    "url": "https://www.dunnesstores.com/store-locator/stores/70"
+  },
+  {
+    "name": "Edenderry ",
+    "lat": 53.34265,
+    "lng": -7.05878,
+    "url": "https://www.dunnesstores.com/store-locator/stores/71"
+  },
+  {
+    "name": "Carrigaline",
+    "lat": 51.81169,
+    "lng": -8.39161,
+    "url": "https://www.dunnesstores.com/store-locator/stores/74"
+  },
+  {
+    "name": "Letterkenny - Main Street",
+    "lat": 54.94559,
+    "lng": -7.74111,
+    "url": "https://www.dunnesstores.com/store-locator/stores/76"
+  },
+  {
+    "name": "Liffey Valley SC",
+    "lat": 53.35206,
+    "lng": -6.39377,
+    "url": "https://www.dunnesstores.com/store-locator/stores/79"
+  },
+  {
+    "name": "Cork - Bandon Road",
+    "lat": 51.87374,
+    "lng": -8.52087,
+    "url": "https://www.dunnesstores.com/store-locator/stores/8"
+  },
+  {
+    "name": "Roscommon ",
+    "lat": 53.63225,
+    "lng": -8.184654,
+    "url": "https://www.dunnesstores.com/store-locator/stores/81"
+  },
+  {
+    "name": "Lucan ",
+    "lat": 53.34788,
+    "lng": -6.45312,
+    "url": "https://www.dunnesstores.com/store-locator/stores/83"
+  },
+  {
+    "name": "Rathdowney",
+    "lat": 52.84948,
+    "lng": -7.58615,
+    "url": "https://www.dunnesstores.com/store-locator/stores/84"
+  },
+  {
+    "name": "Ballincollig",
+    "lat": 51.88882,
+    "lng": -8.5932,
+    "url": "https://www.dunnesstores.com/store-locator/stores/86"
+  },
+  {
+    "name": "Dundalk - Marshes SC",
+    "lat": 54.00059,
+    "lng": -6.39881,
+    "url": "https://www.dunnesstores.com/store-locator/stores/87"
+  },
+  {
+    "name": "Blessington ",
+    "lat": 53.17234,
+    "lng": -6.53337,
+    "url": "https://www.dunnesstores.com/store-locator/stores/88"
+  },
+  {
+    "name": "Ashbourne",
+    "lat": 53.51297,
+    "lng": -6.40063,
+    "url": "https://www.dunnesstores.com/store-locator/stores/89"
+  },
+  {
+    "name": "Cork - Merchants Quay",
+    "lat": 51.89945,
+    "lng": -8.46954,
+    "url": "https://www.dunnesstores.com/store-locator/stores/90"
+  },
+  {
+    "name": "Mullingar - Harbour Place ",
+    "lat": 53.52813,
+    "lng": -7.33985,
+    "url": "https://www.dunnesstores.com/store-locator/stores/93"
+  },
+  {
+    "name": "Navan",
+    "lat": 53.65429,
+    "lng": -6.68802,
+    "url": "https://www.dunnesstores.com/store-locator/stores/94"
+  },
+  {
+    "name": "Monaghan",
+    "lat": 54.2465,
+    "lng": -6.97131,
+    "url": "https://www.dunnesstores.com/store-locator/stores/95"
+  }
+]
