@@ -11,8 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",
-    "dotenv": "^8.2.0",
-    "geolib": "^3.3.1"
+    "dotenv": "^8.2.0"
   },
   "devDependencies": {
     "eslint": "^7.21.0",
