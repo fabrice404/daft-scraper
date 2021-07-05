@@ -88,5 +88,35 @@
     "name": "Kildare",
     "lat": 53.163,
     "lng": -6.90802
+  },
+  {
+    "type": "Commuter",
+    "name": "Donabate",
+    "lat": 53.4855,
+    "lng": -6.15134
+  },
+  {
+    "type": "DART",
+    "name": "Malahide",
+    "lat": 53.4509,
+    "lng": -6.15649
+  },
+  {
+    "type": "Commuter",
+    "name": "Rush and Lusk",
+    "lat": 53.5201,
+    "lng": -6.1439
+  },
+  {
+    "type": "Commuter",
+    "name": "Skerries",
+    "lat": 53.5741,
+    "lng": -6.11933
+  },
+  {
+    "type": "Commuter",
+    "name": "Balbriggan",
+    "lat": 53.6118,
+    "lng": -6.18226
   }
 ]

@@ -211,12 +211,12 @@ const extractPropertyData = async (property) => {
   scoring.ber = 0;
   switch (property.ber.rating[0]) {
     case 'A': scoring.ber = 200; break;
-    case 'B': scoring.ber = 70; break;
-    case 'C': scoring.ber = 0; break;
-    case 'D': scoring.ber = -50; break;
-    case 'E': scoring.ber = -100; break;
-    case 'F': scoring.ber = -150; break;
-    case 'G': scoring.ber = -200; break;
+    case 'B': scoring.ber = 50; break;
+    case 'C': scoring.ber = -100; break;
+    case 'D': scoring.ber = -200; break;
+    case 'F': scoring.ber = -1000; break;
+    case 'E': scoring.ber = -1000; break;
+    case 'G': scoring.ber = -1000; break;
     default: break;
   }
   switch (property.ber.rating[1]) {
@@ -246,7 +246,7 @@ const extractPropertyData = async (property) => {
 
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
-  scoring.floorArea = (floorArea - 150) * 2;
+  scoring.floorArea = (floorArea - 200) * 2;
   scoring.distance = -Math.round(distance / 10);
   scoring.transport = -Math.round(transport.duration * 3);
   scoring.store = -Math.round(store.duration * 2);
@@ -256,8 +256,8 @@ const extractPropertyData = async (property) => {
   scoring.type = 0;
   switch (property.propertyType) {
     case 'Detached': scoring.type = 100; break;
-    case 'Semi-D': scoring.type = 50; break;
-    case 'Bungalow': scoring.type = 30; break;
+    case 'Bungalow': scoring.type = 100; break;
+    case 'Semi-D': scoring.type = 0; break;
     default: scoring.type = -100; break;
   }
 
