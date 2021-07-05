@@ -98,6 +98,9 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
   return Math.round(dist * 10) / 10;
 };
 
+const OCONNELL_LAT = 53.347256812999525;
+const OCONNELL_LNG = -6.259080753374189;
+
 /**
  * Calculates distance between given GPS location and O'Connell bridge
  * @param {number} lat
@@ -105,9 +108,30 @@ const calculateDistance = (lat1, lng1, lat2, lng2) => {
  * @returns
  */
 const distanceFromOConnellBridge = (lat, lng) => calculateDistance(
-  lat, lng,
-  53.347256812999525, -6.259080753374189,
+  lat, lng, OCONNELL_LAT, OCONNELL_LNG,
 );
+
+const realDistanceFromOConnellBridge = async (id, lat, lng) => {
+  const file = `${CACHE_FOLDER}/oconnell/${id}.json`;
+  if (fs.existsSync(file)) {
+    return JSON.parse(fs.readFileSync(file));
+  }
+
+  const transportType = 'driving-car';
+
+  const url = `https://api.openrouteservice.org/v2/directions/${transportType}?api_key=${OPENROUTESERVICE_API_KEY}&start=${lng},${lat}&end=${OCONNELL_LNG},${OCONNELL_LAT}`;
+  const response = await axios.get(url);
+  const { distance, duration } = response.data.features[0].properties.summary;
+  const result = {
+    distance: Math.round(distance / 100) / 10,
+    duration: Math.round(duration / 60),
+  };
+  await sleep(60000 / OPENROUTESERVICE_RPM_LIMIT);
+  fs.writeFileSync(file, JSON.stringify(result, null, 2));
+
+  console.log(`${id}: ${result.distance} km, ${result.duration} min from O'Connell Bridge`);
+  return result;
+};
 
 /**
  * Calculates distance between given GPS location and public transports stations
@@ -237,9 +261,14 @@ const extractPropertyData = async (property) => {
 
   const [lng, lat] = property.point.coordinates;
   const distance = distanceFromOConnellBridge(lat, lng);
-  const transport = await findClosestTransport(property.id, lat, lng);
+  let transport = await findClosestTransport(property.id, lat, lng);
   if (transport == null) {
-    return null;
+    if (distance < 20) {
+      transport = await realDistanceFromOConnellBridge(property.id, lat, lng);
+    }
+    if (transport == null || transport.duration > 30) {
+      return null;
+    }
   }
   const store = await findClosestStore(property.id, lat, lng);
   const middlePrice = MAXIMUM_PRICE - ((MAXIMUM_PRICE - MINUMUM_PRICE) / 2);
@@ -247,7 +276,6 @@ const extractPropertyData = async (property) => {
   scoring.bedrooms = bedrooms * 25; // 1 bedroom = 25 pts;
   scoring.bathrooms = bathrooms * 10; // 1 bathroom = 10 pts
   scoring.floorArea = (floorArea - 200) * 2;
-  scoring.distance = -Math.round(distance / 10);
   scoring.transport = -Math.round(transport.duration * 3);
   scoring.store = -Math.round(store.duration * 2);
   scoring.price = Math.round((middlePrice - price) / 1000);
@@ -290,7 +318,6 @@ const extractPropertyData = async (property) => {
     bedrooms,
     bathrooms,
     pricePerSquareMeter,
-    distance,
     transport,
     store,
     scoring,
