@@ -118,5 +118,17 @@
     "name": "Balbriggan",
     "lat": 53.6118,
     "lng": -6.18226
+  },
+  {
+    "type": "Commuter",
+    "name": "Maynooth",
+    "lat": 53.3791648706871,
+    "lng": -6.5909011493211285
+  },
+  {
+    "type": "DART",
+    "name": "Malahide",
+    "lat": 53.4509,
+    "lng": -6.15649
   }
 ]

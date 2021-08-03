@@ -157,7 +157,7 @@ const findClosestTransport = async (id, lat, lng) => {
   let transportType = '';
   if (station.type === 'Commuter' && station.distance < 10) {
     transportType = 'driving-car';
-  } else if (station.distance < 2) {
+  } else if (station.distance < 5) {
     transportType = 'foot-walking';
   } else {
     return null;
